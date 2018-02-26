@@ -10,45 +10,34 @@ namespace FindLongestSqeuence
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a series of Numebers");
-            string sequence = Console.ReadLine();
+            string sequence = "43125674";
             var theReturn = FindSequence(sequence);
-
-            Console.WriteLine(theReturn);
+            Console.WriteLine("From these numbers " + sequence);
+            Console.WriteLine("The longest sequence is: " + theReturn);
         }
 
         public static string FindSequence(string numbers)
         {
+            int tmpLen = 0, maxLen = numbers.Length;
 
-            int[] numArry = new int[numbers.Length];
-            int[] sequenceArry = new int[numbers.Length];
-            int counter = 0;
-            string longestString = "!#";
-            for (int i = 0; i < numbers.Length; i++)
+            string longestSequence = "";
+
+            for(int i = 0; i < maxLen; i++)
             {
-                numArry[i] = Convert.ToInt32(numbers.Substring(i, 1));
-            }
-
-            for(int i =0; i < numArry.Length; i++)
-            {
-
-                int firstNum = numArry[i], nextNum = numArry[i + 1];
-                if (i > numArry.Length)
+                Console.WriteLine("This is i " + i);
+                tmpLen++;
+                if(tmpLen > maxLen-1)
+                {
                     break;
-                if (nextNum == firstNum + 1)
-                {
-                    counter++;
-                    sequenceArry[i] = firstNum;
-                    sequenceArry[i + 1] = nextNum;
                 }
-                else
-                {
-                    counter = 0;
-
+                if(Convert.ToInt32(numbers[i]) < Convert.ToInt32(numbers[i+1]) && (Convert.ToInt32(numbers[i+1] )) == Convert.ToInt32(numbers[i])+1)
+                {                  
+                    longestSequence += numbers[i];
+                    Console.WriteLine("This is a number from the numbers array" + numbers[i]);
+                    Console.WriteLine(longestSequence);
                 }
             }
-          
-            return longestString;
+            return longestSequence;
         }
     }
 }
