@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Find the longest positive sequece of numbers and print that back
+ * 
+ Answer: 5 6 7*/
+
 namespace FindLongestSqeuence
 {
     class Program
@@ -13,15 +17,26 @@ namespace FindLongestSqeuence
         static void Main(string[] args)
         {
             int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
+            int[] longestSeq = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
-            int arryLen = sequence.Length;
+            int count, max;
+            int arryLen = sequence.Length - 1;
 
             for(int i = 0; i < arryLen; i++)
             {
-                Console.WriteLine(sequence[i]);
-            }
+                
+                if(sequence[i] == sequence[i+1]-1)
+                {
+                    longestSeq[i] = sequence[i]; 
+                }
+                if (sequence[i + 1] == sequence[i] + 1)
+                {
+                    longestSeq[i+1] = sequence[i+1];
+                }
+                Console.WriteLine(longestSeq[i]);
 
-           
+            }
+                       
         }
     }
 
