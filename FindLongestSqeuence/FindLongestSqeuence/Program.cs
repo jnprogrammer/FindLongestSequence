@@ -14,35 +14,22 @@ namespace FindLongestSqeuence
         {
             int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
 
-            //Console.WriteLine("From these numbers " + sequence);
-            //Console.WriteLine("The longest sequence is: " + theReturn);
+            int arryLen = sequence.Length;
 
-            int maxLen = sequence.Length;
-            int[] longestSequence = new int[8];
-            int[] tempArray = new int[10];
-            for (int i = 1; i < maxLen; i++)
+            for(int i = 0; i < arryLen; i++)
             {
-                if (sequence[i - 1] == sequence[i] - 1)
-                {
-
-                    Console.WriteLine(sequence[i - 1]);
-                    longestString += sequence[i - 1].ToString();
-
-                    //longestSequence[1] = sequence[i+1];
-                    Console.WriteLine(sequence[i] - 1);
-                    longestString += (sequence[i] - 1).ToString();
-
-                }
-
-                Console.WriteLine(longestString);
+                Console.WriteLine(sequence[i]);
             }
+
+           
         }
     }
+
 }
 
 //        public static int[] FindSequence(int[] sequence)
 //        {
-         
+
 //            int maxLen = sequence.Length;
 //            int[] longestSequence = new int[8];
 //            int[] tempArray = new int[10];
@@ -50,7 +37,7 @@ namespace FindLongestSqeuence
 //            {
 //                if(sequence[i-1] == sequence[i]-1)
 //                {
-                   
+
 //                    Console.WriteLine(sequence[i-1]);
 //                   longestString+= sequence[i-1].ToString();
 
@@ -59,7 +46,7 @@ namespace FindLongestSqeuence
 //                    longestString += (sequence[i]-1).ToString();
 
 //                }
-                
+
 //                Console.WriteLine(longestString);
 //            }
 
@@ -86,3 +73,29 @@ namespace FindLongestSqeuence
 
 //    return longestSequence;
 //}
+
+//int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
+
+////Console.WriteLine("From these numbers " + sequence);
+////Console.WriteLine("The longest sequence is: " + theReturn);
+
+//int maxLen = sequence.Length;
+//int[] longestSequence = new int[8];
+//int[] tempArray = new int[10];
+//            for (int i = 1; i<maxLen; i++)
+//            {
+//                if (sequence[i - 1] == sequence[i] - 1)
+//                {
+
+//                    Console.WriteLine(sequence[i - 1]);
+//                    longestString += sequence[i - 1].ToString();
+
+////longestSequence[1] = sequence[i+1];
+//Console.WriteLine(sequence[i] - 1);
+//                    longestString += (sequence[i] - 1).ToString();
+
+//                }
+
+//                Console.WriteLine(longestString);
+//            }
+//        }
