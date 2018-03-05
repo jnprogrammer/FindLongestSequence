@@ -12,11 +12,10 @@ namespace FindLongestSqeuence
 {
     class Program
     {
-        static string longestString;
-
         static void Main(string[] args)
         {
             int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
+
             int[] longestSeq = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
             int count = 0, max = 0;
@@ -24,27 +23,33 @@ namespace FindLongestSqeuence
 
             for(int i = 0; i < arryLen; i++)
             {
-                
-                if(sequence[i] == sequence[i+1]-1)
+                if (count > max)
                 {
-                    count++;
+                    for (int j = 0; j < arryLen; j++)
+                    {
+                        longestSeq[j] = 0;
+                    }
+                    max = count;
+                    Console.WriteLine(longestSeq[i]);
+
+                }
+                if (sequence[i] == sequence[i + 1] - 1)
+                {
+
                     longestSeq[i] = sequence[i];
                     count++;
-                    longestSeq[i + 1] = sequence[i + 1];
-                   
                 }
+                
+                if (sequence[i + 1] == sequence[i] + 1)
+                {
+                    longestSeq[i + 1] = sequence[i + 1];
 
-
-                max = count;
-                Console.WriteLine(longestSeq[i]);
-                Console.WriteLine("The Max:" + max);
-                count = 0;
-            
+                }
+                
             }
-                       
+            Console.WriteLine("The Max:" + max);
         }
     }
-
 }
 
 //        public static int[] FindSequence(int[] sequence)
