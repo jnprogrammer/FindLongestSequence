@@ -8,48 +8,81 @@ namespace FindLongestSqeuence
 {
     class Program
     {
+        static string longestString;
+
         static void Main(string[] args)
         {
-            string sequence = "43125674";
-            var theReturn = FindSequence(sequence);
-            Console.WriteLine("From these numbers " + sequence);
-            Console.WriteLine("The longest sequence is: " + theReturn);
-        }
+            int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
 
-        public static string FindSequence(string numbers)
-        {
-            int maxLen = numbers.Length, counterA = 0, counterB = 0;
-            string longestSequence = "";
-            for (int i = 0; i < maxLen-1; i++)
+            //Console.WriteLine("From these numbers " + sequence);
+            //Console.WriteLine("The longest sequence is: " + theReturn);
+
+            int maxLen = sequence.Length;
+            int[] longestSequence = new int[8];
+            int[] tempArray = new int[10];
+            for (int i = 1; i < maxLen; i++)
             {
-                if (Convert.ToInt32(numbers[i+1]) == Convert.ToInt32(numbers[i])-1)
+                if (sequence[i - 1] == sequence[i] - 1)
                 {
-                    counterA++;
-                    longestSequence += numbers[i];
-                    Console.WriteLine(numbers[i]);
 
-                    if (!(i-1 <= -1))
-                    {
-                        if (Convert.ToInt32(longestSequence[i]) == Convert.ToInt32(numbers[i - 1])+1)
-                        {
-                            longestSequence += numbers[i];
-                        }
-                    }
+                    Console.WriteLine(sequence[i - 1]);
+                    longestString += sequence[i - 1].ToString();
+
+                    //longestSequence[1] = sequence[i+1];
+                    Console.WriteLine(sequence[i] - 1);
+                    longestString += (sequence[i] - 1).ToString();
+
                 }
-                
-                //if(Convert.ToInt32(numbers[i])!= Convert.ToInt32(numbers[i+1]))
-                //{
-                //    counterA = 0;
-                //    if(counterA == 0)
-                //    {
-                //        longestSequence = "";
-                //    }
-                //}
-               
-               
-            }
 
-            return longestSequence;
+                Console.WriteLine(longestString);
+            }
         }
     }
 }
+
+//        public static int[] FindSequence(int[] sequence)
+//        {
+         
+//            int maxLen = sequence.Length;
+//            int[] longestSequence = new int[8];
+//            int[] tempArray = new int[10];
+//            for(int i = 1; i < maxLen; i++)
+//            {
+//                if(sequence[i-1] == sequence[i]-1)
+//                {
+                   
+//                    Console.WriteLine(sequence[i-1]);
+//                   longestString+= sequence[i-1].ToString();
+
+//                    //longestSequence[1] = sequence[i+1];
+//                    Console.WriteLine(sequence[i]-1);
+//                    longestString += (sequence[i]-1).ToString();
+
+//                }
+                
+//                Console.WriteLine(longestString);
+//            }
+
+//            return longestString;
+//        }
+//    }
+//}
+//public static int[] FindSequence(int[] sequence)
+//{
+//    int maxLen = sequence.Length;
+//    int[] longestSequence = new int[8];
+//    for (int i = 1; i < maxLen; i++)
+//    {
+//        if (sequence[i - 1] == sequence[i] - 1)
+//        {
+
+//            Console.WriteLine(sequence[i - 1]);
+
+//            longestSequence[1] = sequence[i + 1];
+//            Console.WriteLine(sequence[i]);
+//        }
+
+//    }
+
+//    return longestSequence;
+//}
