@@ -23,35 +23,39 @@ namespace FindLongestSqeuence
 
             for(int i = 0; i < arryLen; i++)
             {
-                if (count > max)
-                {
-                    for (int j = 0; j < arryLen; j++)
-                    {
-                        longestSeq[j] = 0;
-                    }
-                    max = count;
-                    Console.WriteLine(longestSeq[i]);
-
-                }
+                
                 if (sequence[i] == sequence[i + 1] - 1)
                 {
-
                     longestSeq[i] = sequence[i];
                     count++;
                 }
                 
                 if (sequence[i + 1] == sequence[i] + 1)
                 {
-                    longestSeq[i + 1] = sequence[i + 1];
-
+                    longestSeq[i +1 ] = sequence[i+1];
                 }
                 
             }
-            Console.WriteLine("The Max:" + max);
+            for(int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(longestSeq[4+i]);
+            }
+            
+            // Console.WriteLine("The Max:" + max);
         }
     }
 }
 
+//if (count > max)
+//                {
+//                    for (int j = 0; j<arryLen; j++)
+//                    {
+//                        longestSeq[j] = 0;
+//                    }
+//                    max = count;
+//                    Console.WriteLine(longestSeq[i]);
+
+//                }
 //        public static int[] FindSequence(int[] sequence)
 //        {
 
