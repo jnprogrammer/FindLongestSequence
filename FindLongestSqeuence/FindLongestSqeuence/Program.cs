@@ -16,9 +16,7 @@ namespace FindLongestSqeuence
         {
             int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
 
-            int[] longestSeq = { 0, 0, 0, 0, 0, 0, 0, 0 };
-
-            int count = 0, max = 0;
+            int startNdx = 0, endNdx = 0, maxLength = 0;
             int arryLen = sequence.Length - 1;
 
             for(int i = 0; i < arryLen; i++)
@@ -26,19 +24,18 @@ namespace FindLongestSqeuence
                 
                 if (sequence[i] == sequence[i + 1] - 1)
                 {
-                    longestSeq[i] = sequence[i];
-                    count++;
+
+
+                    endNdx = i + 1;
                 }
-                
-                if (sequence[i + 1] == sequence[i] + 1)
+                else
                 {
-                    longestSeq[i +1 ] = sequence[i+1];
+                    startNdx = i+1;
                 }
-                
             }
             for(int i = 0; i < 3; i++)
             {
-                Console.WriteLine(longestSeq[4+i]);
+            
             }
             
             // Console.WriteLine("The Max:" + max);
