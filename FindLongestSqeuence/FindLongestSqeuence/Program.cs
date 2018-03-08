@@ -16,7 +16,7 @@ namespace FindLongestSqeuence
         {
             int[] sequence = { 4, 3, 1, 2, 5, 6, 7, 4 };
 
-            int startNdx = 0, endNdx = 0, maxLength = 0;
+            int startNdx = 0, endNdx = 0, maxLength = 0, count = 0;
             int arryLen = sequence.Length - 1;
 
             for(int i = 0; i < arryLen; i++)
@@ -25,12 +25,13 @@ namespace FindLongestSqeuence
                 if (sequence[i] == sequence[i + 1] - 1)
                 {
 
-
+                    count++;
                     endNdx = i + 1;
                 }
                 else
                 {
                     startNdx = i+1;
+                    count = 0;
                 }
             }
             for(int i = 0; i < 3; i++)
